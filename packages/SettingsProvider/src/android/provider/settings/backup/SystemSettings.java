@@ -85,5 +85,6 @@ public class SystemSettings {
         Settings.System.ALARM_ALERT,
         Settings.System.NOTIFICATION_LIGHT_PULSE,
         // ColtOS Customization
+        Settings.System.SCREENSHOT_SOUND,
     };
 }
