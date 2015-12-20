@@ -48,6 +48,7 @@ import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.ReadingModeTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
+import com.android.systemui.qs.tiles.SleepScreenTile;
 import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.SoundSearchTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
@@ -101,6 +102,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<MonoToggleTile> mMonoToggleTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<KillappTile> mKillappTileProvider;
+    private final Provider<SleepScreenTile> mSleepScreenTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
 
@@ -136,7 +138,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<SoundSearchTile> soundSearchTileProvider,
             Provider<MonoToggleTile> monoToggleTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
-            Provider<KillappTile> killappTileProvider) {
+            Provider<KillappTile> killappTileProvider,
+            Provider<SleepScreenTile> sleepScreenTileProvider) {
         mQsHostLazy = qsHostLazy;
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
@@ -169,6 +172,7 @@ public class QSFactoryImpl implements QSFactory {
         mMonoToggleTileProvider = monoToggleTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
         mKillappTileProvider = killappTileProvider;
+        mSleepScreenTileProvider = sleepScreenTileProvider;
     }
 
     public QSTile createTile(String tileSpec) {
@@ -243,6 +247,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mScreenshotTileProvider.get();
             case "killapp":
                 return mKillappTileProvider.get();
+            case "sleepscreen":
+                return mSleepScreenTileProvider.get();
         }
 
         // Custom tiles
