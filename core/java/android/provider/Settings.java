@@ -4874,6 +4874,81 @@ public final class Settings {
         public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
 
         /**
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_LIST = "global_actions_list";
+
+        /**
+         * Whether to display sound panel in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SOUNDPANEL = "global_actions_soundpanel";
+
+        /**
+         * Whether to display screenshot in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SCREENSHOT = "global_actions_screenshot";
+
+        /**
+         * Whether to display screenrecord in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SCREENRECORD = "global_actions_screenrecord";
+
+        /**
+         * Whether to display settings in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SETTINGS = "global_actions_settings";
+
+        /**
+         * Whether to display lock in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_LOCKDOWN = "global_actions_lockdown";
+
+        /**
+         * Whether to display airplane in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_AIRPLANE = "global_actions_airplane";
+
+        /**
+         * Whether to display the users option in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_USERS = "global_actions_users";
+
+        /**
+         * Whether to display the flashlight option in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_FLASHLIGHT = "global_actions_flashlight";
+
+        /**
+         * Whether to display the flashlight option in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_EMERGENCY = "global_actions_emergency";
+
+        /**
+         * How many action items before moving to overflow
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_MAX_COLUMNS = "global_actions_max_columns";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -9064,6 +9139,28 @@ public final class Settings {
         public static final int ACCESSIBILITY_MAGNIFICATION_MODE_WINDOW = 0x2;
 
         /**
+<<<<<<< HEAD
+=======
+         * Boolean value whether to link ringtone and notification volume
+         * @hide
+         */
+        public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
+
+        /**
+         * Wheter to have transparent background on lockscreen notifications
+         *
+         * @hide
+         */
+        public static final String LOCK_SCREEN_TRANSPARENT_NOTIFICATIONS_ENABLED =
+                "lock_screen_transparent_notifications_enabled";
+
+        /**
+         * @hide
+         */
+        public static final String ADVANCED_REBOOT = "advanced_reboot";
+
+        /**
+>>>>>>> 76227f3e36ef... Global Actions with Advanced Reboot [1/3]
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
