@@ -13346,6 +13346,11 @@ public final class Settings {
                 "power_button_very_long_press";
 
         /**
+         * @hide
+         */
+        public static final String SHOW_CPU_OVERLAY = "show_cpu_overlay";
+
+        /**
          * Global settings that shouldn't be persisted.
          *
          * @hide
