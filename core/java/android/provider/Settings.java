@@ -4949,6 +4949,49 @@ public final class Settings {
         public static final String GLOBAL_ACTIONS_MAX_COLUMNS = "global_actions_max_columns";
 
         /**
+         * Applications list where heasdup should't show
+         *
+         * @hide
+         */
+        public static final String HEADS_UP_STOPLIST_VALUES = "heads_up_stoplist_values";
+
+         /**
+         * Which applications to disable heads up notifications for
+         *
+         * @hide
+         */
+        public static final String HEADS_UP_BLACKLIST_VALUES = "heads_up_blacklist_values";
+
+        /**
+         * Defines the screen-off animation to display
+         * @hide
+         */
+        public static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
+
+        /**
+         * @hide
+         */
+        public static final String TORCH_LONG_PRESS_POWER_GESTURE = "torch_long_press_power_gesture";
+
+        /**
+         * @hide
+         */
+        public static final String TORCH_LONG_PRESS_POWER_TIMEOUT = "torch_long_press_power_timeout";
+
+        /**
+         * Volume rocker wake
+         * @hide
+         */
+        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
+
+        /**
+         * Volume rocker music control
+         * @hide
+         */
+        public static final String VOLUME_BUTTON_MUSIC_CONTROL = "volume_button_music_control";
+
+        /**
+>>>>>>> 0bc7c105f939... incall vibration options [1/3]
          * Whether to display set of animations when prompting the power menu
          *
          * @hide
@@ -4976,6 +5019,24 @@ public final class Settings {
          * @hide
          */
         public static final String OMNI_QS_LAYOUT_ROWS = "qs_layout_rows";
+
+        /**
+         * Whether the phone vibrates on call connect
+         * @hide
+         */
+        public static final String VIBRATE_ON_CONNECT = "vibrate_on_connect";
+
+         /**
+         * Whether the phone vibrates on call waiting
+         * @hide
+         */
+        public static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
+
+         /**
+         * Whether the phone vibrates on disconnect
+         * @hide
+         */
+        public static final String VIBRATE_ON_DISCONNECT = "vibrate_on_disconnect";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
@@ -5108,6 +5169,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(VOLUME_KEY_CURSOR_CONTROL);
             PRIVATE_SETTINGS.add(LOCKSCREEN_BATTERY_INFO);
             PRIVATE_SETTINGS.add(OMNI_QS_LAYOUT_ROWS);
+            PRIVATE_SETTINGS.add(VIBRATE_ON_CONNECT);
+            PRIVATE_SETTINGS.add(VIBRATE_ON_CALLWAITING);
+            PRIVATE_SETTINGS.add(VIBRATE_ON_DISCONNECT);
         }
 
         /**
