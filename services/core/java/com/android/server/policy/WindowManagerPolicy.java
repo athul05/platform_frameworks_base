@@ -1318,6 +1318,11 @@ public interface WindowManagerPolicy extends WindowManagerPolicyConstants {
     public void sendCustomAction(Intent intent);
 
     /**
+     * Send some ActionHandler commands to WindowManager.
+     */
+    public void sendCustomAction(Intent intent);
+
+    /**
      * Lock the device now.
      */
     public void lockNow(Bundle options);
