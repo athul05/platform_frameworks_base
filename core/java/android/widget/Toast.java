@@ -33,6 +33,8 @@ import android.compat.annotation.UnsupportedAppUsage;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Binder;
+import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
@@ -696,6 +698,23 @@ public class Toast {
                 mPresenter.show(mView, mToken, windowToken, mDuration, mGravity, mX, mY,
                         mHorizontalMargin, mVerticalMargin,
                         new CallbackBinder(getCallbacks(), mHandler));
+
+                String packageName = mView.getContext().getOpPackageName();
+                Context context = mView.getContext().getApplicationContext();
+                if (context == null) {
+                    context = mView.getContext();
+                }
+                ImageView appIcon = (ImageView) mView.findViewById(android.R.id.icon);
+                if (appIcon != null) {
+                    PackageManager pm = context.getPackageManager();
+                    Drawable icon = null;
+                    try {
+                        icon = pm.getApplicationIcon(packageName);
+                    } catch (PackageManager.NameNotFoundException e) {
+                        // nothing to do
+                    }
+                    appIcon.setImageDrawable(icon);
+                }
             }
         }
 
