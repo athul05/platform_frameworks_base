@@ -5148,8 +5148,17 @@ public final class Settings {
          * Custom vibration pattern
          * format: ms,ms,ms each a range from 0 to 1000 ms
          * @hide
-         */
+	 */
         public static final String CUSTOM_RINGTONE_VIBRATION_PATTERN = "custom_ringtone_vibration_pattern";
+
+	/**
+         * Whether user can swap the order of the Alert Slider.
+         * * Whether user can invert the order of the Alert Slider.
+         * 0: Default
+         * 1: Inverted
+         * @hide
+         */
+        public static final String ALERT_SLIDER_ORDER = "alert_slider_order";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to

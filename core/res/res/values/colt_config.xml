@@ -79,4 +79,7 @@
     <string-array translatable="false" name="config_customPermissionsList">
         <!-- <item>more packages</item>-->
     </string-array>
+
+    <!-- Whether device has an alert slider. -->
+    <bool name="config_hasAlertSlider">false</bool>
 </resources>
