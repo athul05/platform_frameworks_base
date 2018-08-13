@@ -342,7 +342,7 @@
                 <action android:name="android.content.action.DOCUMENTS_PROVIDER" />
             </intent-filter>
         </provider>
-
+-->
         <provider android:name=".HeapDumpProvider"
                   android:authorities="com.android.shell.heapdump"
                   android:grantUriPermissions="true"
