@@ -35,8 +35,10 @@ import android.view.KeyEvent;
 
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
 
 import com.android.internal.statusbar.IStatusBarService;
+import java.util.Locale;
 
 /**
  * Some custom utilities
@@ -126,6 +128,11 @@ public class ColtUtils {
             }
         }
 
+    // Check for Chinese language
+    public static boolean isChineseLanguage() {
+       return Resources.getSystem().getConfiguration().locale.getLanguage().startsWith(
+               Locale.CHINESE.getLanguage());
+    }
         public static void toggleCameraFlash() {
             IStatusBarService service = getStatusBarService();
             if (service != null) {
