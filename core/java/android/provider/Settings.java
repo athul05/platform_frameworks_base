@@ -4949,6 +4949,13 @@ public final class Settings {
         public static final String GLOBAL_ACTIONS_MAX_COLUMNS = "global_actions_max_columns";
 
         /**
+         * Whether to display set of animations when prompting the power menu
+         *
+         * @hide
+         */
+        public static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -9139,28 +9146,11 @@ public final class Settings {
         public static final int ACCESSIBILITY_MAGNIFICATION_MODE_WINDOW = 0x2;
 
         /**
-<<<<<<< HEAD
-=======
-         * Boolean value whether to link ringtone and notification volume
-         * @hide
-         */
-        public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
-
-        /**
-         * Wheter to have transparent background on lockscreen notifications
-         *
-         * @hide
-         */
-        public static final String LOCK_SCREEN_TRANSPARENT_NOTIFICATIONS_ENABLED =
-                "lock_screen_transparent_notifications_enabled";
-
-        /**
          * @hide
          */
         public static final String ADVANCED_REBOOT = "advanced_reboot";
 
         /**
->>>>>>> 76227f3e36ef... Global Actions with Advanced Reboot [1/3]
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *

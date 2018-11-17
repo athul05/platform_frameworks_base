@@ -37,4 +37,9 @@
 
   <!-- Power menu -->
   <java-symbol type="array" name="config_rebootActionsList" />
+
+  <!-- Powermenu animations -->
+  <java-symbol type="style" name="GlobalActionsAnimation" />
+  <java-symbol type="style" name="GlobalActionsAnimationTop" />
+  <java-symbol type="style" name="GlobalActionsAnimationEnter" />
 </resources>
