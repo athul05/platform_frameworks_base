@@ -114,4 +114,6 @@
      <java-symbol type="anim" name="ethans_launch_task_behind_source" />
      <java-symbol type="anim" name="ethans_launch_task_behind_target" />
 
+  <!-- Toast animation -->
+  <java-symbol type="style" name="Animation.Toast.Material" />
 </resources>
