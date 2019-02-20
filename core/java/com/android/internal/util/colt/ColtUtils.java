@@ -18,6 +18,7 @@ package com.android.internal.util.colt;
 
 import android.Manifest;
 import android.app.ActivityManager;
+import android.app.NotificationManager;
 import android.media.AudioManager;
 import android.content.Context;
 import android.content.Intent;
@@ -41,6 +42,7 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.os.SystemClock;
+import android.os.Vibrator;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.IWindowManager;
@@ -57,16 +59,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-public class ColtUtils {
+import static android.content.Context.NOTIFICATION_SERVICE;
+import static android.content.Context.VIBRATOR_SERVICE;
 
-    /**
-     * Returns whether the device is voice-capable (meaning, it is also a phone).
-     */
-    public static boolean isVoiceCapable(Context context) {
-        TelephonyManager telephony =
-                (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        return telephony != null && telephony.isVoiceCapable();
-    }
+public class ColtUtils {
 
     public static final String INTENT_SCREENSHOT = "action_handler_screenshot";
     public static final String INTENT_REGION_SCREENSHOT = "action_handler_region_screenshot";
@@ -81,6 +77,15 @@ public class ColtUtils {
             }
             return mStatusBarService;
         }
+    }
+
+    /**
+     * Returns whether the device is voice-capable (meaning, it is also a phone).
+     */
+    public static boolean isVoiceCapable(Context context) {
+        TelephonyManager telephony =
+                (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        return telephony != null && telephony.isVoiceCapable();
     }
 
     // Check to see if device is WiFi only
@@ -356,15 +361,23 @@ public class ColtUtils {
     // Cycle ringer modes
     public static void toggleRingerModes (Context context) {
         AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
+
         switch (am.getRingerMode()) {
-            case AudioManager.RINGER_MODE_SILENT:
-                am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            case AudioManager.RINGER_MODE_NORMAL:
+                if (vibrator.hasVibrator()) {
+                    am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                }
                 break;
             case AudioManager.RINGER_MODE_VIBRATE:
-                am.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                NotificationManager notificationManager =
+                        (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
+                notificationManager.setInterruptionFilter(
+                        NotificationManager.INTERRUPTION_FILTER_PRIORITY);
                 break;
-            case AudioManager.RINGER_MODE_NORMAL:
-                am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+            case AudioManager.RINGER_MODE_SILENT:
+                am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
                 break;
         }
     }
