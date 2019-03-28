@@ -118,4 +118,8 @@
     <bool name="config_pocketModeSupported">true</bool>
 
     <integer name="config_ambientNotificationDefaultColor">0xFF3980FF</integer>
+
+    <!-- Smart charging battery percentage -->
+    <integer name="config_smartChargingBatteryLevel">80</integer>
+
 </resources>
