@@ -25,4 +25,7 @@
     <string name="quick_settings_tiles_extra" translatable="false">
     </string>
 
+    <!-- Color of the FOD view -->
+    <color name="config_fodColor">#00ff00</color>
+    <color name="config_fodColorBackground">#20000000</color>
 </resources>
