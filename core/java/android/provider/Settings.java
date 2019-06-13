@@ -5682,6 +5682,12 @@ public final class Settings {
         public static final String QS_DATAUSAGE = "qs_datausage";
 
         /**
+         * Whether to show VoLTE icon or not
+         * @hide
+         */
+        public static final String SHOW_VOLTE_ICON = "volte_icon";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -5848,6 +5854,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(HIDE_SMART_REPLIES);
             PRIVATE_SETTINGS.add(BRIGHTNESS_SLIDER_STYLE);
 	    PRIVATE_SETTINGS.add(UI_STYLE);
+            PRIVATE_SETTINGS.add(SHOW_VOLTE_ICON);
         }
 
         /**
