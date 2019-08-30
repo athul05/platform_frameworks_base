@@ -171,4 +171,7 @@
         <item>com.gaana</item>
         <item>com.facebook.katana.LoginActivity</item>
     </string-array>
+
+    <!-- Whether to send camera status intent -->
+    <bool name="config_sendCameraStatusIntent">false</bool>
 </resources>
