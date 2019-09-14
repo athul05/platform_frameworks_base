@@ -24,4 +24,7 @@
     <!-- Name of a font family to use as regular font. For theming purpose. -->
     <string name="config_regularFontFamily" translatable="false">sans-serif-regular</string>
 
+    <!-- Deep sleep info -->
+    <string name="status_deep_sleep">(Deep sleep: %1$d%2$s)</string>
+
 </resources>
