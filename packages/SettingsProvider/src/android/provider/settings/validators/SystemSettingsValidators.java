@@ -217,6 +217,7 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.SHOW_BATTERY_PERCENT, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
         // ColtOS Customization
+        VALIDATORS.put(System.DOUBLE_TAP_SLEEP_GESTURE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.SCREENSHOT_SOUND, BOOLEAN_VALIDATOR);
     }
 }
