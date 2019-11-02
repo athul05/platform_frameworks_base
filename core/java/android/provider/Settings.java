@@ -5108,8 +5108,16 @@ public final class Settings {
         /**
          * Whether to use the custom quick unlock screen control
          * @hide
-         */
+	 */
         public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
+
+	/**
+         * Whether to show ambient or lockscreen if AoD is disabled
+         * and we do a wake gesture like lift to wake or double tap
+         *
+         * @hide
+         */
+        public static final String AMBIENT_WAKE_GESTURES = "ambient_wake_gestures";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
