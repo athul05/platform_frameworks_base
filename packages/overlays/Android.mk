@@ -48,6 +48,8 @@ LOCAL_REQUIRED_MODULES := \
 	FontCagliostroSourceOverlay \
 	FontCoolstorySourceOverlay \
 	FontLGSmartGothicSourceOverlay \
+	FontComicSansSourceOverlay \
+	FontGoogleSansSourceOverlay \
 	FontNotoSerifSourceOverlay \
 	FontRosemarySourceOverlay \
 	FontSonySketchSourceOverlay \
