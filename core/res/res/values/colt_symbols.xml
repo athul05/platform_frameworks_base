@@ -55,4 +55,8 @@
   <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
 
   <java-symbol type="array" name="config_customPermissionsList" />
+
+  <!-- Light / Regular style fonts -->
+  <java-symbol type="string" name="config_lightFontFamily" />
+  <java-symbol type="string" name="config_regularFontFamily" />
 </resources>
