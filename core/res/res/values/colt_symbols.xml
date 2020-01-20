@@ -69,4 +69,8 @@
   <java-symbol type="string" name="reboot_to_bootloader_message" />
   <java-symbol type="string" name="reboot_title" />
   <java-symbol type="string" name="reboot_message" />
+
+  <!-- Themes -->
+  <java-symbol type="color" name="theme_generic_semi_transparent_color" />
+
 </resources>
