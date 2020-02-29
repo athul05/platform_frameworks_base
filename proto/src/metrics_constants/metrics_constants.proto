@@ -7432,5 +7432,8 @@ message MetricsEvent {
     // ColtOS constant
     COLT = 1999;
     COLT_QS_TILES = 2000;
+
+    // Panel for Mobile Data
+    PANEL_MOBILE_DATA = 2001;
   }
 }
