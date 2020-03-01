@@ -235,4 +235,6 @@ oneway interface IStatusBar
      * Colt
      */
     void toggleCameraFlash();
+
+    void killForegroundApp();
 }

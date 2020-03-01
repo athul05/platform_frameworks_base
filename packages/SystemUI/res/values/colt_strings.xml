@@ -14,6 +14,9 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <string name="task_helper_app_killed">%1$s force stopped</string>
+    <string name="empty_app_killed">App</string>
+
     <!-- Custom QS tiles -->
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Ambient display</string>
