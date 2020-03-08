@@ -548,7 +548,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private VolumePluginManager mVolumePluginManager;
 
-    private boolean mChargingAnimation;
+    private int mChargingAnimation;
 
     private final BroadcastReceiver mWallpaperChangedReceiver = new BroadcastReceiver() {
         @Override
@@ -2123,9 +2123,9 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private void updateChargingAnimation() {
         mChargingAnimation = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.LOCKSCREEN_CHARGING_ANIMATION, 1, UserHandle.USER_CURRENT) == 1;
+                Settings.System.LOCKSCREEN_CHARGING_ANIMATION, 1, UserHandle.USER_CURRENT);
         if (mKeyguardIndicationController != null) {
-            mKeyguardIndicationController.updateChargingIndication(mChargingAnimation);
+            mKeyguardIndicationController.updateChargingIndication();
         }
     }
 
