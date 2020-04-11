@@ -5706,6 +5706,14 @@ public final class Settings {
         public static final String VOWIFI_ICON_STYLE = "vowifi_icon_style";
 
         /**
+         * Setting to determine whether or not to show the battery percentage in the qs status bar header.
+         *    0 - Show remaining time
+         *    1 - Show percentage
+         * @hide
+         */
+        public static final String QS_SHOW_BATTERY_PERCENT = "qs_header_show_battery_percent";
+
+        /**
          * Sensor block per-package
          * @hide
          */
@@ -5888,6 +5896,7 @@ public final class Settings {
 	    PRIVATE_SETTINGS.add(UI_STYLE);
             PRIVATE_SETTINGS.add(SHOW_VOLTE_ICON);
             PRIVATE_SETTINGS.add(VOLTE_ICON_STYLE);
+            PRIVATE_SETTINGS.add(QS_SHOW_BATTERY_PERCENT);
         }
 
         /**

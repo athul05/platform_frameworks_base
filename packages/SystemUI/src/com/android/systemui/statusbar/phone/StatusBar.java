@@ -186,6 +186,7 @@ import com.android.systemui.pulse.VisualizerView;
 import com.android.systemui.qs.QSFragment;
 import com.android.systemui.qs.QSPanel;
 import com.android.systemui.statusbar.info.DataUsageView;
+import com.android.systemui.qs.QuickStatusBarHeader;
 import com.android.systemui.recents.Recents;
 import com.android.systemui.recents.ScreenPinningRequest;
 import com.android.systemui.shared.plugins.PluginManager;
@@ -440,6 +441,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     private final RemoteInputQuickSettingsDisabler mRemoteInputQuickSettingsDisabler;
 
     private View mReportRejectedTouch;
+    private View mQSBarHeader;
 
     private boolean mExpandedVisible;
 
@@ -1113,6 +1115,10 @@ public class StatusBar extends SystemUI implements DemoMode,
                         }
                     }
                 }, OverlayPlugin.class, true /* Allow multiple plugins */);
+
+        mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
+        mCustomSettingsObserver.observe();
+        mCustomSettingsObserver.update();
     }
 
     // ================================================================================
@@ -1310,6 +1316,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             fragmentHostManager.addTagListener(QS.TAG, (tag, f) -> {
                 QS qs = (QS) f;
                 if (qs instanceof QSFragment) {
+                    mQSBarHeader = ((QSFragment) qs).getHeader();
                     mQSPanel = ((QSFragment) qs).getQsPanel();
                     mQSPanel.setBrightnessMirror(mBrightnessMirrorController);
                 }
@@ -2158,6 +2165,9 @@ public class StatusBar extends SystemUI implements DemoMode,
 	   resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.BRIGHTNESS_SLIDER_STYLE),
                     false, this, UserHandle.USER_ALL);
+           resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_SHOW_BATTERY_PERCENT),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -2182,6 +2192,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_USE_NEW_TINT)) ||
                           uri.equals(Settings.System.getUriFor(Settings.System.QS_TILES_BG_DISCO))) {
                 mQSPanel.getHost().reloadAllTiles();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.QS_SHOW_BATTERY_PERCENT))) {
+                setQsBatteryPercentMode();
             }
        	    update();
         }
@@ -2194,8 +2207,14 @@ public class StatusBar extends SystemUI implements DemoMode,
             setOldMobileType();
 	    updateBrightnessSliderStyle();
 	    updateGModStyle();
+	    setQsBatteryPercentMode();
         }
     }
+
+    private void setQsBatteryPercentMode() {
+        if (mQSBarHeader != null) {
+            ((QuickStatusBarHeader) mQSBarHeader).setBatteryPercentMode();
+        }
 
     public void updateBrightnessSliderStyle() {
          int brighthnessSliderStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
