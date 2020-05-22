@@ -92,6 +92,7 @@ public class SystemSettings {
         Settings.System.CUSTOM_RINGTONE_VIBRATION_PATTERN,
         Settings.System.NOTIFICATION_HEADERS,
         Settings.System.CENTER_NOTIFICATION_HEADERS,
-        Settings.System.USE_OLD_MOBILETYPE
+        Settings.System.USE_OLD_MOBILETYPE,
+        Settings.System.QS_PANEL_BG_USE_NEW_TINT,
     };
 }
