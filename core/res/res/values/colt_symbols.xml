@@ -142,4 +142,9 @@
 
   <!-- Hide FOD while Going to sleep from lockscreen to avoid HBM flicker -->
   <java-symbol type="bool" name="config_inDisplayFingerprintFlickersGoingToSleep" />
+
+  <!-- SystemUI Restart -->
+  <java-symbol type="string" name="systemui_restart_title" />
+  <java-symbol type="string" name="systemui_restart_message" />
+
 </resources>
