@@ -42,6 +42,5 @@
          This allows for the first block in PathEffect to fade -->
     <integer name="config_pulseDbFuzz">2</integer>
 
-    <bool name="config_display_vowifi">true</bool>
 
 </resources>
