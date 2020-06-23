@@ -855,11 +855,11 @@ public class VolumeDialogImpl implements VolumeDialog,
                     cleanExpandedRows();
                     mExpanded = false;
                     mExpandRows.setExpanded(mExpanded);
+                    mController.notifyVisible(false);
                 }, 50));
         if (!isLandscape() || !mShowActiveStreamOnly) animator.translationX(getAnimatorX());
         animator.start();
         checkODICaptionsTooltip(true);
-        mController.notifyVisible(false);
         synchronized (mSafetyWarningLock) {
             if (mSafetyWarning != null) {
                 if (D.BUG) Log.d(TAG, "SafetyWarning dismissed");
