@@ -17,6 +17,6 @@
   -->
 <resources>
 
-    <color name="qs_tile_background_color_disabled">#1f1f1f</color>
+    <color name="qs_tile_background_color_disabled">#0fffffff</color>
 
 </resources>
