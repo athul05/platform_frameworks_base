@@ -41,6 +41,14 @@ public class ThemesUtils {
             "com.android.systemui.brightness.slider.memestroke",
     };
 
+    public static final String[] UI_THEMES = {
+            "com.android.systemui.ui.default",
+            "com.android.systemui.ui.nocornerradius",
+            "com.android.systemui.ui.rectangle",
+            "com.android.systemui.ui.roundlarge",
+            "com.android.systemui.ui.roundmedium",
+    };
+
     public static final String[] SOLARIZED_DARK = {
             "com.android.theme.solarizeddark.system",
             "com.android.theme.solarizeddark.systemui",
@@ -129,5 +137,31 @@ public class ThemesUtils {
             }
         }
     }
+
+    public static void updateUIStyle(IOverlayManager om, int userId, int uiStyle) {
+        if (uiStyle == 0) {
+            stockUIStyle(om, userId);
+        } else {
+            try {
+                om.setEnabled(UI_THEMES[uiStyle],
+                        true, userId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change switch theme", e);
+            }
+        }
+    }
+
+    public static void stockUIStyle(IOverlayManager om, int userId) {
+        for (int i = 0; i < UI_THEMES.length; i++) {
+            String uitheme = UI_THEMES[i];
+            try {
+                om.setEnabled(uitheme,
+                        false /*disable*/, userId);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
 

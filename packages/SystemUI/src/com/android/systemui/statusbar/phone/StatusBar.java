@@ -2141,12 +2141,18 @@ public class StatusBar extends SystemUI implements DemoMode,
 	    updateChargingAnimation();
             setOldMobileType();
 	    updateBrightnessSliderStyle();
+	    updateGModStyle();
         }
     }
 
     public void updateBrightnessSliderStyle() {
          int brighthnessSliderStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
                  Settings.System.BRIGHTNESS_SLIDER_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
+     }
+
+    public void updateGModStyle() {
+         int gModStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
+                 Settings.System.UI_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
      }
 
     private void setFpToDismissNotifications() {

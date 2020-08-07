@@ -5549,6 +5549,11 @@ public final class Settings {
          * @hide
          */
         public static final String BRIGHTNESS_SLIDER_STYLE = "brightness_slider_style";
+		
+		/**
+         * @hide
+         */
+        public static final String UI_STYLE = "ui_style";
 
         /**
          * Whether to disco the QS tiles or not
@@ -5836,6 +5841,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_TILES_BG_DISCO);
             PRIVATE_SETTINGS.add(HIDE_SMART_REPLIES);
             PRIVATE_SETTINGS.add(BRIGHTNESS_SLIDER_STYLE);
+	    PRIVATE_SETTINGS.add(UI_STYLE);
         }
 
         /**
