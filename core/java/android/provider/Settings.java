@@ -5545,6 +5545,11 @@ public final class Settings {
         public static final String NOTIFICATION_GUTS_KILL_APP_BUTTON =
                 "notification_guts_kill_app_button";
 
+	/**
+         * @hide
+         */
+        public static final String BRIGHTNESS_SLIDER_STYLE = "brightness_slider_style";
+
         /**
          * Whether to disco the QS tiles or not
          * @hide
@@ -5830,6 +5835,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
             PRIVATE_SETTINGS.add(QS_TILES_BG_DISCO);
             PRIVATE_SETTINGS.add(HIDE_SMART_REPLIES);
+            PRIVATE_SETTINGS.add(BRIGHTNESS_SLIDER_STYLE);
         }
 
         /**

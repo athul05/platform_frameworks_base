@@ -2102,6 +2102,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_TILES_BG_DISCO),
+		    false, this, UserHandle.USER_ALL);
+	   resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.BRIGHTNESS_SLIDER_STYLE),
                     false, this, UserHandle.USER_ALL);
         }
 
@@ -2137,8 +2140,14 @@ public class StatusBar extends SystemUI implements DemoMode,
             setLockScreenMediaBlurLevel();
 	    updateChargingAnimation();
             setOldMobileType();
+	    updateBrightnessSliderStyle();
         }
     }
+
+    public void updateBrightnessSliderStyle() {
+         int brighthnessSliderStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
+                 Settings.System.BRIGHTNESS_SLIDER_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
+     }
 
     private void setFpToDismissNotifications() {
         mFpDismissNotifications = Settings.Secure.getIntForUser(mContext.getContentResolver(),
