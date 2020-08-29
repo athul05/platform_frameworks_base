@@ -78,13 +78,6 @@ public class ThemesUtils {
             "com.android.theme.materialocean.systemui",
     };
 
-    public static final String[] BRIGHTNESS_SLIDER_THEMES = {
-        "com.jrinfected.brightness.a",
-        "com.jrinfected.brightness.b",
-        "com.jrinfected.brightness.c",
-        "com.jrinfected.brightness.d",
-    };
-
     public static final String[] PANEL_BG_STYLE = {
         "com.jrinfected.panel.batik", // 1
         "com.jrinfected.panel.kece", // 2
