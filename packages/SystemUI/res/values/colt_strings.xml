@@ -167,4 +167,7 @@
     <!-- QS Header data usage info -->
     <string name="usage_data">used</string>
 
+    <!-- Change clockface -->
+    <string name="change_clock_face">Swipe to change the clock face</string>
+
 </resources>
