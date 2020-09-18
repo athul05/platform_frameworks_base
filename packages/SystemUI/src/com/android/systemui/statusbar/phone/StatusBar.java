@@ -1375,7 +1375,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         // Private API call to make the shadows look better for Recents
         ThreadedRenderer.overrideProperty("ambientRatio", String.valueOf(1.5f));
 
-        mFlashlightController = Dependency.get(FlashlightController.class);
     }
 
     @VisibleForTesting
