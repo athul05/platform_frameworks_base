@@ -843,7 +843,7 @@ public final class DefaultPermissionGrantPolicy {
         // Google App
         grantSystemFixedPermissionsToSystemPackage(pm, "com.google.android.googlequicksearchbox", userId,
                 CALENDAR_PERMISSIONS, CAMERA_PERMISSIONS, CONTACTS_PERMISSIONS, ALWAYS_LOCATION_PERMISSIONS,
-                MICROPHONE_PERMISSIONS, PHONE_PERMISSIONS, SMS_PERMISSIONS, STORAGE_PERMISSIONS);
+                PHONE_PERMISSIONS, SMS_PERMISSIONS, STORAGE_PERMISSIONS);
 
         // Google Play Services
         grantSystemFixedPermissionsToSystemPackage(pm, "com.google.android.gms", userId, SENSORS_PERMISSIONS,
