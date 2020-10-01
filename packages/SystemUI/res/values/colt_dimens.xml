@@ -15,4 +15,6 @@
     <!-- Largest size an avatar might need to be drawn in the power menu user picker -->
     <dimen name="global_actions_avatar_size">24dp</dimen>
 
+    <!-- QS panel brightness side margin -->
+    <dimen name="qs_brightness_side_margin">10dp</dimen>
 </resources>
