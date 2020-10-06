@@ -5464,6 +5464,12 @@ public final class Settings {
         public static final String USE_OLD_MOBILETYPE = "use_old_mobiletype";
 
         /**
+         * Enable/Disable screenshot sound
+         * @hide
+         */
+        public static final String SCREENSHOT_SOUND = "screenshot_sound";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -5624,6 +5630,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FINGERPRINT_SUCCESS_VIB);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_VIEW_LOCATION);
             PRIVATE_SETTINGS.add(USE_OLD_MOBILETYPE);
+            PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
         }
 
         /**
