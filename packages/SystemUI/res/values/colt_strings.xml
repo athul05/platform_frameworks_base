@@ -59,4 +59,7 @@
     <string name="vpn_credentials_username">Username</string>
     <string name="vpn_credentials_password">Password</string>
     <string name="vpn_credentials_dialog_connect">Connect</string>
+
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Swipe from icon to launch</string>
 </resources>
