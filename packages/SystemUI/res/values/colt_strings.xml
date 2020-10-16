@@ -163,4 +163,8 @@
     <string name="hp_buddy_right">Right only</string>
     <string name="hp_buddy_center">Both</string>
     <string name="hp_buddy_not_connected">Connect your headphones</string>
+
+    <!-- QS Header data usage info -->
+    <string name="usage_data">used</string>
+
 </resources>
