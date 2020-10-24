@@ -20,13 +20,6 @@
   <java-symbol type="dimen" name="config_buttonBrightnessSettingDefaultFloat" />
   <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
 
-  <java-symbol type="string" name="reboot_to_recovery_title" />
-  <java-symbol type="string" name="reboot_to_recovery_message" />
-  <java-symbol type="string" name="reboot_to_bootloader_title" />
-  <java-symbol type="string" name="reboot_to_bootloader_message" />
-  <java-symbol type="string" name="reboot_title" />
-  <java-symbol type="string" name="reboot_message" />
-
   <!-- HW keys binding -->
   <java-symbol type="anim" name="custom_app_in" />
   <java-symbol type="anim" name="custom_app_out" />
@@ -41,4 +34,5 @@
 
   <!-- Whether device has dash charging support -->
   <java-symbol type="bool" name="config_hasDashCharger" />
+
 </resources>
