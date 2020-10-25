@@ -4979,19 +4979,6 @@ public final class Settings {
         public static final String TORCH_LONG_PRESS_POWER_TIMEOUT = "torch_long_press_power_timeout";
 
         /**
-         * Volume rocker wake
-         * @hide
-         */
-        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
-
-        /**
-         * Volume rocker music control
-         * @hide
-         */
-        public static final String VOLUME_BUTTON_MUSIC_CONTROL = "volume_button_music_control";
-
-        /**
->>>>>>> 0bc7c105f939... incall vibration options [1/3]
          * Whether to display set of animations when prompting the power menu
          *
          * @hide
