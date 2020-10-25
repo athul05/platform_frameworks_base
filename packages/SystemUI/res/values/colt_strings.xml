@@ -30,4 +30,20 @@
     <!-- Label for current user in power menu options dialog -->
     <string name="global_action_current_user">Current</string>
 
+    <string name="global_action_restart_advanced">Advanced reboot</string>
+    <!-- Spidey Analog clock -->
+    <string name="clock_title_spidey" translatable="false">Spidey</string>
+    <!-- Spectrum Analog clock -->
+    <string name="clock_title_spectrum" translatable="false">Spectrum</string>
+    <!-- Dot Analog clock -->
+    <string name="clock_title_dot" translatable="false">Dot</string>
+
+    <!-- Sneeky Analog clock -->
+    <string name="clock_title_sneeky" translatable="false">Sneeky</string>
+
+    <string name="statusbar_items_title">Statusbar icon</string>
+
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
 </resources>
