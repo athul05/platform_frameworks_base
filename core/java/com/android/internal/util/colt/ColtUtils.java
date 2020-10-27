@@ -216,6 +216,8 @@ public class ColtUtils {
             return mService.getOverlayInfosForTarget(target, userId);
 	}
 
+        }
+
         public static boolean deviceSupportNavigationBar(Context context) {
             return deviceSupportNavigationBarForUser(context, UserHandle.USER_CURRENT);
         }
