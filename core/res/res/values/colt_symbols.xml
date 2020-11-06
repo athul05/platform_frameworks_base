@@ -13,9 +13,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-  <java-symbol type="string" name="config_deviceKeyHandlerLib" />
-  <java-symbol type="string" name="config_deviceKeyHandlerClass" />
-
   <!-- Button backlight -->
   <java-symbol type="dimen" name="config_buttonBrightnessSettingDefaultFloat" />
   <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
