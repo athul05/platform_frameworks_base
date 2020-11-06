@@ -132,7 +132,6 @@ import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.util.hwkeys.PackageMonitor;
 import com.android.internal.util.hwkeys.PackageMonitor.PackageChangedListener;
 import com.android.internal.util.hwkeys.PackageMonitor.PackageState;
-import com.android.internal.util.colt.ColtUtils;
 import com.android.internal.view.AppearanceRegion;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardUpdateMonitorCallback;
@@ -1349,7 +1348,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         filter.addAction(DevicePolicyManager.ACTION_SHOW_DEVICE_MONITORING_DIALOG);
-        filter.addAction(ColtUtils.ACTION_DISMISS_KEYGUARD);
         mBroadcastDispatcher.registerReceiver(mBroadcastReceiver, filter, null, UserHandle.ALL);
     }
 
@@ -2861,12 +2859,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             }
             else if (DevicePolicyManager.ACTION_SHOW_DEVICE_MONITORING_DIALOG.equals(action)) {
                 mQSPanel.showDeviceMonitoringDialog();
-            }
-            else if (ColtUtils.ACTION_DISMISS_KEYGUARD.equals(action)) {
-                if (intent.hasExtra(ColtUtils.DISMISS_KEYGUARD_EXTRA_INTENT)) {
-                    Intent launchIntent = (Intent) intent.getParcelableExtra(ColtUtils.DISMISS_KEYGUARD_EXTRA_INTENT);
-                    startActivityDismissingKeyguard(launchIntent, true, true);
-                }
             }
         }
     };
