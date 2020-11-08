@@ -31,7 +31,6 @@ import android.graphics.Point;
 import android.hardware.biometrics.BiometricSourceType;
 import android.net.Uri;
 import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.UserHandle;
@@ -448,7 +447,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener,Tu
     @Override
     protected void onDraw(Canvas canvas) {
         if (!mIsCircleShowing) {
-            mPaintFingerprintBackground.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
             canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprintBackground);
         }
         super.onDraw(canvas);
