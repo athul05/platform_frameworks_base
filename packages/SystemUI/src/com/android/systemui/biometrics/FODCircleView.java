@@ -70,17 +70,16 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     private final boolean mDeviceFlickersGoingToSleep;
     private final boolean mShouldBoostBrightness;
     private final Paint mPaintFingerprintBackground = new Paint();
-    private final Paint mPaintFingerprint = new Paint();
     private final WindowManager.LayoutParams mParams = new WindowManager.LayoutParams();
     private final WindowManager.LayoutParams mPressedParams = new WindowManager.LayoutParams();
     private final WindowManager mWindowManager;
 
     private IFingerprintInscreen mFingerprintInscreenDaemon;
 
+    private int mColorBackground;
     private int mDreamingOffsetY;
 
     private int mColor;
-    private int mColorBackground;
 
     private boolean mFading;
     private boolean mIsBouncer;
@@ -99,6 +98,35 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
     private FODAnimation mFODAnimation;
     private boolean mIsRecognizingAnimEnabled;
+
+    private int mSelectedIcon;
+    private final int[] ICON_STYLES = {
+        R.drawable.fod_icon_default,
+        R.drawable.fod_icon_default_0,
+        R.drawable.fod_icon_default_1,
+        R.drawable.fod_icon_default_2,
+        R.drawable.fod_icon_default_3,
+        R.drawable.fod_icon_default_4,
+        R.drawable.fod_icon_default_5,
+        R.drawable.fod_icon_arc_reactor,
+        R.drawable.fod_icon_cpt_america_flat,
+        R.drawable.fod_icon_cpt_america_flat_gray,
+        R.drawable.fod_icon_dragon_black_flat,
+        R.drawable.fod_icon_glow_circle,
+        R.drawable.fod_icon_neon_arc,
+        R.drawable.fod_icon_neon_arc_gray,
+        R.drawable.fod_icon_neon_circle_pink,
+        R.drawable.fod_icon_neon_triangle,
+        R.drawable.fod_icon_paint_splash_circle,
+        R.drawable.fod_icon_rainbow_horn,
+        R.drawable.fod_icon_shooky,
+        R.drawable.fod_icon_spiral_blue,
+        R.drawable.fod_icon_sun_metro,
+        R.drawable.fod_icon_scratch_pink_blue,
+        R.drawable.fod_icon_scratch_red_blue,
+        R.drawable.fod_icon_fire_ice_ouroboros,
+        R.drawable.fod_icon_transparent
+    };
 
     private IFingerprintInscreenCallback mFingerprintInscreenCallback =
             new IFingerprintInscreenCallback.Stub() {
@@ -222,8 +250,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     public FODCircleView(Context context) {
         super(context);
 
-        setScaleType(ScaleType.CENTER);
-
         IFingerprintInscreen daemon = getFingerprintInScreenDaemon();
         if (daemon == null) {
             throw new RuntimeException("Unable to get IFingerprintInscreen");
@@ -239,10 +265,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         }
 
         Resources res = context.getResources();
-
-        mColor = res.getColor(R.color.config_fodColor);
-        mPaintFingerprint.setColor(mColor);
-        mPaintFingerprint.setAntiAlias(true);
 
         mColorBackground = res.getColor(R.color.config_fodColorBackground);
         mPaintFingerprintBackground.setColor(mColorBackground);
@@ -279,7 +301,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
             @Override
             protected void onDraw(Canvas canvas) {
                 if (mIsCircleShowing) {
-                    canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+                    canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprintBackground);
                 }
                 super.onDraw(canvas);
             }
@@ -317,12 +339,16 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.FOD_ANIM),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.FOD_ICON),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.FOD_ANIM))) {
+                    Settings.System.FOD_ANIM)) || uri.equals(Settings.System.getUriFor(
+                Settings.System.FOD_ICON))) {
                 updateStyle();
             }
         }
@@ -438,7 +464,7 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     public void hideCircle() {
         mIsCircleShowing = false;
 
-        setImageResource(R.drawable.fod_icon_default);
+        setImageResource(ICON_STYLES[mSelectedIcon]);
         invalidate();
 
         dispatchRelease();
@@ -498,6 +524,8 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     private void updateStyle() {
         mIsRecognizingAnimEnabled = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.FOD_RECOGNIZING_ANIMATION, 0) != 0;
+        mSelectedIcon = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.FOD_ICON, 0);
 
         if (mFODAnimation != null) {
             mFODAnimation.update(mIsRecognizingAnimEnabled);
