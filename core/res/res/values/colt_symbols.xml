@@ -150,4 +150,7 @@
   <!-- NightLight FOD -->
   <java-symbol type="bool" name="disable_fod_night_light"/>
 
+  <!-- Default fod pressed icon -->
+  <java-symbol type="integer" name="config_fod_pressed_color" />
+
 </resources>
