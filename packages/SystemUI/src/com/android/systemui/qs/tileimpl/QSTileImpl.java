@@ -246,10 +246,8 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 Settings.Secure.QUICK_SETTINGS_TILES_VIBRATE, 0, UserHandle.USER_CURRENT) == 1);
     }
 
-    public void vibrateTile() {
-        if (!isVibrationEnabled()) {
-            return;
-        }
+    public void vibrateTile(int duration) {
+        if (!isVibrationEnabled()) { return; }
         if (mVibrator != null) {
             if (mVibrator.hasVibrator())
                 mVibrator.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
@@ -276,7 +274,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 getInstanceId());
         mQSLogger.logTileClick(mTileSpec, mStatusBarStateController.getState(), mState.state);
         mHandler.sendEmptyMessage(H.CLICK);
-        vibrateTile();
+        vibrateTile(45);
     }
 
     public void secondaryClick() {
@@ -303,7 +301,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 mContext,
                 Prefs.Key.QS_LONG_PRESS_TOOLTIP_SHOWN_COUNT,
                 QuickStatusBarHeader.MAX_TOOLTIP_SHOWN_COUNT);
-        vibrateTile();
+        vibrateTile(45);
     }
 
     public LogMaker populate(LogMaker logMaker) {
