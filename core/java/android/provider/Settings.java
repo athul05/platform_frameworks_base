@@ -5628,6 +5628,12 @@ public final class Settings {
         public static final String AMBIENT_LIGHT_REPEAT_COUNT = "ambient_light_repeat_count";
 
         /**
+         * Enable\Disable visibility of smart replies in notifications
+         * @hide
+         */
+        public static final String HIDE_SMART_REPLIES = "hide_smart_replies";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -5791,6 +5797,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
             PRIVATE_SETTINGS.add(QS_TILES_BG_DISCO);
+            PRIVATE_SETTINGS.add(HIDE_SMART_REPLIES);
         }
 
         /**
