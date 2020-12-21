@@ -2786,6 +2786,8 @@
         <item>users</item>
         <item>silent</item>
         <item>emergency</item>
+        <item>logout</item>
+        <item>bugreport</item>
     </string-array>
 
     <!-- Number of milliseconds to hold a wake lock to ensure that drawing is fully
@@ -3488,6 +3490,7 @@
      mode -->
     <string-array translatable="false" name="config_priorityOnlyDndExemptPackages">
         <item>com.android.dialer</item>
+        <item>com.android.server.telecom</item>
         <item>com.android.systemui</item>
         <item>android</item>
     </string-array>
