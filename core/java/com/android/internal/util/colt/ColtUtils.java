@@ -54,7 +54,16 @@ import com.android.internal.R;
 import com.android.internal.statusbar.IStatusBarService;
 import java.util.Locale;
 import java.util.Arrays;
+import java.util.ArrayList;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
+
+import android.hardware.fingerprint.FingerprintManager;
+import android.util.TypedValue;
 
 /**
  * Some custom utilities
@@ -284,4 +293,11 @@ public class ColtUtils {
             return hasNavigationBar == 1;
         }
     }
+
+    public static int getThemeAccentColor (final Context context) {
+        final TypedValue value = new TypedValue();
+        context.getTheme().resolveAttribute(android.R.attr.colorAccent, value, true);
+        return value.data;
+    }
+
 }
