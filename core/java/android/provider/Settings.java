@@ -5166,6 +5166,7 @@ public final class Settings {
          */
         public static final String VOLUME_PANEL_ON_LEFT = "volume_panel_on_left";
 
+	/**
          * Whether the phone ringtone should be played in an increasing manner
          * @hide
          */
