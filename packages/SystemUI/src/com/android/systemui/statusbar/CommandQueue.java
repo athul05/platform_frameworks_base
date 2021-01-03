@@ -1340,11 +1340,6 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
                         callbacks.suppressAmbientDisplay((boolean) msg.obj);
                     }
                     break;
-                case MSG_TOGGLE_CAMERA_FLASH:
-                    for (int i = 0; i < mCallbacks.size(); i++) {
-                        mCallbacks.get(i).toggleCameraFlash();
-		     }
-                    break;
                 case MSG_SHOW_IN_DISPLAY_FINGERPRINT_VIEW:
                     for (int i = 0; i < mCallbacks.size(); i++) {
                         mCallbacks.get(i).showInDisplayFingerprintView();

@@ -164,8 +164,4 @@ interface IStatusBarService
     void showInDisplayFingerprintView();
     void hideInDisplayFingerprintView();
 
-    /**
-     * ColtOS extensions
-     */
-    void toggleCameraFlash();
 }
