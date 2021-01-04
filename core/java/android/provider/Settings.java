@@ -13894,11 +13894,6 @@ public final class Settings {
         public static final String ANIMATION_CONTROLS_DURATION = "animation_controls_duration";
 
         /**
-         * @hide
-         */
-        public static final String SHOW_FPS_OVERLAY = "show_fps_overlay";
-
-        /**
          * Google Hybrid Battery Warnings
          * @hide
          */

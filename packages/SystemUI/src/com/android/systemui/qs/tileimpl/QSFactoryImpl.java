@@ -42,7 +42,6 @@ import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
-import com.android.systemui.qs.tiles.FPSInfoTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.ImmersiveTile;
@@ -104,7 +103,6 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<CompassTile> mCompassTileProvider;
     private final Provider<CPUInfoTile> mCPUInfoTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
-    private final Provider<FPSInfoTile> mFPSInfoTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<ImmersiveTile> mImmersiveTileProvider;
     private final Provider<MonoToggleTile> mMonoToggleTileProvider;
@@ -148,7 +146,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<CompassTile> compassTileProvider,
             Provider<CPUInfoTile> cpuInfoTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider,
-            Provider<FPSInfoTile> fpsInfoTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
             Provider<ImmersiveTile> immersiveTileProvider,
             Provider<MonoToggleTile> monoToggleTileProvider,
@@ -188,7 +185,6 @@ public class QSFactoryImpl implements QSFactory {
         mCompassTileProvider = compassTileProvider;
         mCPUInfoTileProvider = cpuInfoTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
-        mFPSInfoTileProvider = fpsInfoTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
         mImmersiveTileProvider = immersiveTileProvider;
         mMonoToggleTileProvider = monoToggleTileProvider;
@@ -265,8 +261,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mCPUInfoTileProvider.get();
             case "dataswitch":
                 return mDataSwitchTileProvider.get();
-            case "fpsinfo":
-                return mFPSInfoTileProvider.get();
             case "heads_up":
                 return mHeadsUpTileProvider.get();
             case "immersive":
