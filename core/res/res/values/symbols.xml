@@ -1669,7 +1669,7 @@
   <java-symbol type="bool" name="config_enableCarDockHomeLaunch" />
   <java-symbol type="bool" name="config_enableLockBeforeUnlockScreen" />
   <java-symbol type="bool" name="config_enableLockScreenRotation" />
-  <java-symbol type="bool" name="config_forceShowSystemBars" />
+  <java-symbol type="bool" name="config_remoteInsetsControllerControlsSystemBars" />
   <java-symbol type="bool" name="config_lidControlsScreenLock" />
   <java-symbol type="bool" name="config_lidControlsSleep" />
   <java-symbol type="bool" name="config_lockDayNightMode" />
@@ -4056,4 +4056,5 @@
   <java-symbol type="color" name="gradient_start" />
   <java-symbol type="color" name="gradient_end" />
 
+  <java-symbol type="array" name="config_keep_warming_services" />
 </resources>
