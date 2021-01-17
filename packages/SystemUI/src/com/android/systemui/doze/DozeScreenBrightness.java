@@ -29,6 +29,7 @@ import android.os.SystemProperties;
 import android.os.Trace;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.view.Display;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.systemui.broadcast.BroadcastDispatcher;
@@ -126,7 +127,6 @@ public class DozeScreenBrightness extends BroadcastReceiver implements DozeMachi
                 }
                 break;
             case DOZE:
-                setLightSensorEnabled(false);
                 resetBrightnessToDefault();
                 break;
             case FINISH:
@@ -136,6 +136,15 @@ public class DozeScreenBrightness extends BroadcastReceiver implements DozeMachi
         if (newState != DozeMachine.State.FINISH) {
             setScreenOff(newState == DozeMachine.State.DOZE);
             setPaused(newState == DozeMachine.State.DOZE_AOD_PAUSED);
+        }
+    }
+
+    @Override
+    public void onScreenState(int state) {
+        if (state == Display.STATE_DOZE || state == Display.STATE_DOZE_SUSPEND) {
+            setLightSensorEnabled(true);
+        } else {
+            setLightSensorEnabled(false);
         }
     }
 

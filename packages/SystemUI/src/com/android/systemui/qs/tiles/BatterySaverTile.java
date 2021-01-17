@@ -119,6 +119,8 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
                 state.label = mLevel + "%";
             }
         }
+        state.label = mContext.getString(R.string.battery_detail_switch_title);
+        state.secondaryLabel = "";
         state.contentDescription = state.label;
         state.value = mPowerSave;
         state.expandedAccessibilityClassName = Switch.class.getName();
