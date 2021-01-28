@@ -37,6 +37,7 @@ import com.android.systemui.statusbar.NotificationLockscreenUserManager;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.BatteryController;
+import com.android.systemui.statusbar.policy.TaskHelper;
 import com.android.systemui.colorextraction.SysuiColorExtractor;
 import com.android.systemui.keyguard.ScreenLifecycle;
 import com.android.systemui.keyguard.WakefulnessLifecycle;
@@ -182,15 +183,16 @@ public class StatusBarGoogle extends StatusBar {
             KeyguardIndicationController keyguardIndicationController,
             DismissCallbackRegistry dismissCallbackRegistry,
             Lazy<NotificationShadeDepthController> notificationShadeDepthControllerLazy,
-            StatusBarTouchableRegionManager statusBarTouchableRegionManager) {
+            StatusBarTouchableRegionManager statusBarTouchableRegionManager,
+            TaskHelper taskHelper) {
 
-        super(context, 
+        super(context,
             notificationsController,
             lightBarController,
             autoHideController,
             keyguardUpdateMonitor,
             statusBarIconController,
-            pulseExpansionHandler, 
+            pulseExpansionHandler,
             notificationWakeUpCoordinator,
             keyguardBypassController,
             keyguardStateController,
@@ -261,7 +263,8 @@ public class StatusBarGoogle extends StatusBar {
             keyguardIndicationController,
             dismissCallbackRegistry,
             notificationShadeDepthControllerLazy,
-            statusBarTouchableRegionManager);
+            statusBarTouchableRegionManager,
+            taskHelper);
         }
 
     @Override
