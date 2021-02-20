@@ -483,7 +483,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     private final MetricsLogger mMetricsLogger;
 
     private ImageButton mDismissAllButton;
-    public boolean mClearableNotifications = true;
+    private boolean mClearableNotifications = true;
+    private boolean mShowDimissButton;
 
     // ensure quick settings is disabled until the current user makes it through the setup wizard
     @VisibleForTesting
@@ -1418,7 +1419,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     }
 
 	public void updateDismissAllVisibility(boolean visible) {
-        if (mClearableNotifications && mState != StatusBarState.KEYGUARD && visible) {
+        if (mDismissAllButton == null) return;
+        if (mShowDimissButton && mClearableNotifications && mState != StatusBarState.KEYGUARD && visible) {
             mDismissAllButton.setVisibility(View.VISIBLE);
             int DismissAllAlpha = Math.round(255.0f * mNotificationPanelViewController.getExpandedFraction());
             mDismissAllButton.setAlpha(DismissAllAlpha);
@@ -1426,7 +1428,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         } else {
             mDismissAllButton.setAlpha(0);
             mDismissAllButton.getBackground().setAlpha(0);
-            mDismissAllButton.setVisibility(View.INVISIBLE);
+            mDismissAllButton.setVisibility(View.GONE);
         }
     }
 
@@ -2152,6 +2154,9 @@ public class StatusBar extends SystemUI implements DemoMode,
 	   resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.BRIGHTNESS_SLIDER_STYLE),
                     false, this, UserHandle.USER_ALL);
+	   resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.NOTIFICATION_MATERIAL_DISMISS),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -2188,6 +2193,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setOldMobileType();
 	    updateBrightnessSliderStyle();
 	    updateGModStyle();
+	    setShowDimissButton();
         }
     }
 
@@ -2200,6 +2206,13 @@ public class StatusBar extends SystemUI implements DemoMode,
          int gModStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
                  Settings.System.UI_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
      }
+
+    private void setShowDimissButton() {
+        boolean mShowDimissButton = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.NOTIFICATION_MATERIAL_DISMISS, 0,
+                UserHandle.USER_CURRENT) == 1;
+        updateDismissAllVisibility(true);
+    }
 
     private void setFpToDismissNotifications() {
         mFpDismissNotifications = Settings.Secure.getIntForUser(mContext.getContentResolver(),

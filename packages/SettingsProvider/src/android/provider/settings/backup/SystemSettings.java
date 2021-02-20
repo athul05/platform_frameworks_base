@@ -94,5 +94,6 @@ public class SystemSettings {
         Settings.System.CENTER_NOTIFICATION_HEADERS,
         Settings.System.USE_OLD_MOBILETYPE,
         Settings.System.QS_PANEL_BG_USE_NEW_TINT,
+        Settings.System.NOTIFICATION_MATERIAL_DISMISS,
     };
 }
