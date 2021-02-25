@@ -48,7 +48,7 @@ import com.android.systemui.util.animation.PhysicsAnimator;
  * Wrapper view with background which contains {@link QSPanel} and {@link BaseStatusBarHeader}
  */
 public class QSContainerImpl extends FrameLayout implements
-        OmniSettingsService.OmniSettingsObserver, TunerService.Tunable {
+        StatusBarHeaderMachine.IStatusBarHeaderMachineObserver, OmniSettingsService.OmniSettingsObserver, TunerService.Tunable {
 
     public static final String QS_SHOW_DRAG_HANDLE = "qs_show_drag_handle";
 

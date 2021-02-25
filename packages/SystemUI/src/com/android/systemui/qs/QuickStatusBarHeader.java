@@ -976,21 +976,11 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         } else if (QS_SHOW_AUTO_BRIGHTNESS.equals(key)) {
             mIsQsAutoBrightnessEnabled = TunerService.parseIntegerSwitch(newValue, true);
             updateResources();
+	} else if (STATUS_BAR_CUSTOM_HEADER.equals(key)) {
+	    mHeaderImageEnabled = TunerService.parseIntegerSwitch(newValue, false);
+            updateResources();
         }
-    }
-
-    @Override
-    public void onTuningChanged(String key, String newValue) {
-        switch (key) {
-            case STATUS_BAR_CUSTOM_HEADER:
-                mHeaderImageEnabled =
-                        TunerService.parseIntegerSwitch(newValue, false);
-                updateResources();
-                break;
-            default:
-                break;
-        }
-    }
+   }
 
     private boolean getChipEnabled() {
         return mMicCameraIndicatorsEnabled || mAllIndicatorsEnabled;
