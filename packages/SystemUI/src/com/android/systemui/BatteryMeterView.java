@@ -337,9 +337,7 @@ public class BatteryMeterView extends LinearLayout implements
             if (mShowPercentMode == MODE_ESTIMATE && !mCharging) {
                 mBatteryController.getEstimatedTimeRemainingString((String estimate) -> {
                     if (estimate != null) {
-                        if (mBatteryPercentView != null) {
-                            batteryPercentViewSetText(estimate);
-                        }
+                        mBatteryPercentView.setText(estimate);
                         setContentDescription(getContext().getString(
                                 R.string.accessibility_battery_level_with_estimate,
                                 mLevel, estimate));
@@ -426,13 +424,6 @@ public class BatteryMeterView extends LinearLayout implements
             mBatteryIconView.setVisibility(View.VISIBLE);
             //setVisibility(View.VISIBLE);
             scaleBatteryMeterViews();
-        }
-    }
-
-    private void batteryPercentViewSetText(CharSequence text) {
-        CharSequence currentText = mBatteryPercentView.getText();
-        if (!currentText.toString().equals(text.toString())) {
-            mBatteryPercentView.setText(text);
         }
     }
 
