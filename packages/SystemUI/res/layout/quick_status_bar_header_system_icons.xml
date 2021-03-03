@@ -63,14 +63,6 @@
 
     <include layout="@layout/ongoing_privacy_chip" />
 
-        <com.android.systemui.BatteryMeterView
-           android:id="@+id/batteryRemainingIcon"
-           android:layout_height="match_parent"
-           android:layout_width="wrap_content"
-           android:layout_gravity="center_vertical|end"
-           systemui:textAppearance="@style/TextAppearance.QS.Status"
-           android:paddingEnd="2dp" />
-
         <com.android.systemui.statusbar.policy.NetworkTrafficQS
         android:id="@+id/networkTraffic"
         android:paddingTop="@dimen/status_bar_padding_top"
