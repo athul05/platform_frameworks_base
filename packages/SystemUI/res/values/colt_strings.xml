@@ -167,4 +167,7 @@
     <!-- QS Header data usage info -->
     <string name="usage_data">used</string>
 
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Use Face</string>
+
 </resources>
