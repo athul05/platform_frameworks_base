@@ -2215,6 +2215,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (mQSBarHeader != null) {
             ((QuickStatusBarHeader) mQSBarHeader).setBatteryPercentMode();
         }
+     }
 
     public void updateBrightnessSliderStyle() {
          int brighthnessSliderStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
